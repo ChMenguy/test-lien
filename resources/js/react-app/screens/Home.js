@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; 
-import SideBar from './SideBar'
-import Main from './Main'
-import GenerateLinkButton from './GenerateLinkButton'
+import SideBar from '../Layouts/SideBar'
+import Main from '../Layouts/Main'
+import GenerateLinkButton from '../components/GenerateLinkButton'
 
-function App() {
+function Home() {
     return (
         <div className="bg-gradient-to-r from-blue-500 to-blue-100 min-h-screen flex w-full">
             <SideBar />
@@ -15,8 +15,4 @@ function App() {
     );
 }
 
-export default App;
-
-if (document.getElementById('app')) {
-    ReactDOM.render(<App />, document.getElementById('app'));
-}
+export default Home;
