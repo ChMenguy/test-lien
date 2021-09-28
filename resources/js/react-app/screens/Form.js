@@ -14,7 +14,7 @@ import { data } from 'jquery';
 function Form(){
     //Stockage des data envoyé par l'utilisateur 
     const [data,setData] = useState({
-        id : '',
+        idAffiliated : '',
         email : '',
         link : '',
         use : '',
@@ -24,14 +24,17 @@ function Form(){
 
     // Envoi data en BDD
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data, e) => {
-        setData({
-            id  : data.id,
+    const onSubmit = (data, e) => {    
+            setData({
+            idAffiliated  : data.idAffiliated,
             email : data.email,
             link : data.link,
             use : data.use,
             submit : true
-        })
+            })        
+        
+    axios.post('http://127.0.0.1:8000/api/add-affiliated',data)
+
     };
 
     //En cas d'erreur d'envoi
@@ -62,7 +65,7 @@ function Form(){
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-id">
                                     Identifiant
                                 </label>
-                                <input {...register("id")} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="number"></input>
+                                <input name="idAffiliated" {...register("idAffiliated")} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="number"></input>
                                 <a href="#">
                                     <p className="text-yellow-500 text-right text-xs italic hover:text-yellow-600 underline">Où trouver votre identifiant</p>
                                 </a>                      
@@ -73,7 +76,7 @@ function Form(){
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-id">
                                     Email
                                 </label>
-                                <input {...register("email")} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="email"></input>
+                                <input {...register("email")} name="email" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="email"></input>
                             </div>
                         </div>
                         <div className="w-full px-3 mb-6 md:mb-0">
@@ -81,7 +84,7 @@ function Form(){
                                 Utilisation
                             </label>
                             <div className="relative">
-                                <select {...register("use")} className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                <select {...register("use")} name="use" className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                                     <option>Unique</option>
                                     <option>Multiple</option>      
                                 </select>
@@ -95,7 +98,7 @@ function Form(){
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-id">
                                     Lien généré
                                 </label>
-                                <div className="flex" {...register("link")} >
+                                <div className="flex" {...register("link")} name="link">
                                     <span className="text-xs font-bold text-white rounded-l-lg border-2 w-3/5 py-3 px-4 mb-3">http://127.0.0.1:8000/?id_affilie=</span>
                                     <input className="rounded-r-lg w-2/5 appearance-none block bg-gray-200 text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="text" {...register("link")}></input>               
                                 </div>

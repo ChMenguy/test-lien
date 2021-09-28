@@ -57824,7 +57824,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Form() {
   //Stockage des data envoyé par l'utilisateur 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    id: '',
+    idAffiliated: '',
     email: '',
     link: '',
     use: '',
@@ -57841,12 +57841,13 @@ function Form() {
 
   var onSubmit = function onSubmit(data, e) {
     setData({
-      id: data.id,
+      idAffiliated: data.idAffiliated,
       email: data.email,
       link: data.link,
       use: data.use,
       submit: true
     });
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('http://127.0.0.1:8000/api/add-affiliated', data);
   }; //En cas d'erreur d'envoi
 
 
@@ -57882,7 +57883,9 @@ function Form() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
     htmlFor: "grid-id"
-  }, "Identifiant"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({}, register("id"), {
+  }, "Identifiant"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+    name: "idAffiliated"
+  }, register("idAffiliated"), {
     className: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
     id: "grid-password",
     type: "number"
@@ -57898,6 +57901,7 @@ function Form() {
     className: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
     htmlFor: "grid-id"
   }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({}, register("email"), {
+    name: "email",
     className: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
     id: "grid-password",
     type: "email"
@@ -57909,6 +57913,7 @@ function Form() {
   }, "Utilisation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({}, register("use"), {
+    name: "use",
     className: "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
     id: "grid-state"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Unique"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Multiple")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -57928,7 +57933,9 @@ function Form() {
     htmlFor: "grid-id"
   }, "Lien g\xE9n\xE9r\xE9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
     className: "flex"
-  }, register("link")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, register("link"), {
+    name: "link"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "text-xs font-bold text-white rounded-l-lg border-2 w-3/5 py-3 px-4 mb-3"
   }, "http://127.0.0.1:8000/?id_affilie="), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     className: "rounded-r-lg w-2/5 appearance-none block bg-gray-200 text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
