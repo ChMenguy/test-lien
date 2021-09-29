@@ -6,8 +6,7 @@ import GenerateLinkButton from '../components/GenerateLinkButton'
 
 function Home() {
     return (
-        <div className="bg-gradient-to-r from-blue-500 to-blue-100 min-h-screen flex w-full">
-            <SideBar />
+        <div className="bg-gradient-to-r from-gray-300 to-gray-100 min-h-screen flex w-full">
             <Main>
                 <GenerateLinkButton />
             </Main>
