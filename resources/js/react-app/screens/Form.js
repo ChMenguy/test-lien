@@ -107,7 +107,7 @@ function Form(){
                         <div className="flex flex-wrap mx-3 mb-6">
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-id">
-                                    Email
+                                    Email de l'invité
                                 </label>
                                 <input {...register("email",{required:true})} name="email" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="email"></input>
                             </div>
@@ -133,7 +133,7 @@ function Form(){
                                 </label>
                                 <div className="flex" {...register("link",{required:true})} name="link">
                                     <span className="font-bold text-black rounded-l-lg border-black border-2 w-3/5 py-3 mb-3 pl-1">
-                                        http://127.0.0.1:8000/?id_affilie=
+                                        http://127.0.0.1:8000/?id=
                                     </span>
                                     <input className="rounded-r-lg w-2/5 appearance-none block bg-gray-200 text-gray-700 border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="text" {...register("link")}></input>               
                                 </div>

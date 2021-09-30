@@ -57653,11 +57653,11 @@ function Main(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "flex-1 relative z-0 overflow-y-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "border-b border-gray-200"
+    className: "border-b border-black"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex-1 min-w-0"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "pt-2 uppercase text-lg font-medium leading-6 text-center text-gray-900"
+    className: "pt-2 uppercase text-2xl font-medium leading-6 text-center text-gray-900"
   }, "Cr\xE9ation de votre lien d'affiliation"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "p-1 h-full"
   }, children))));
@@ -57947,7 +57947,7 @@ function Form() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
     htmlFor: "grid-id"
-  }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({}, register("email", {
+  }, "Email de l'invit\xE9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({}, register("email", {
     required: true
   }), {
     name: "email",
@@ -57990,7 +57990,7 @@ function Form() {
     name: "link"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "font-bold text-black rounded-l-lg border-black border-2 w-3/5 py-3 mb-3 pl-1"
-  }, "http://127.0.0.1:8000/?id_affilie="), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+  }, "http://127.0.0.1:8000/?id="), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     className: "rounded-r-lg w-2/5 appearance-none block bg-gray-200 text-gray-700 border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
     id: "grid-password",
     type: "text"
