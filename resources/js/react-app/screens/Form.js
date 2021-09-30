@@ -1,15 +1,13 @@
 import React, { useRef, useState } from 'react';
-import ReactDOM from 'react-dom'; 
 
 import { useForm } from "react-hook-form";
 import axios from "axios"
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCopy , faCheck} from '@fortawesome/free-solid-svg-icons'
+import {faCopy , faCheck,faPaperPlane} from '@fortawesome/free-solid-svg-icons'
 
-import SideBar from '../Layouts/SideBar'
 import Main from '../Layouts/Main'
-import { data } from 'jquery';
+
 import { Link } from 'react-router-dom';
 
 function Form(){
@@ -150,7 +148,7 @@ function Form(){
                     : 
                     <div className="w-full max-w-lg mx-auto mt-10">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-id">
-                            Copié le lien généré
+                            Copier le lien généré
                         </label>
                         <div className="flex w-full border-2 rounded-lg text-center text-black justify-around">
                             <textarea className="text-center pt-3 w-4/5" ref={inputLinkEl} type="text" value={data.link} readOnly>
@@ -172,7 +170,27 @@ function Form(){
                                 
                             </div>
                         </div>
-
+                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" htmlFor="grid-id">
+                            Envoyer le lien généré par mail
+                        </label>
+                        <div className="flex w-full border-2 rounded-lg text-center text-black justify-around">
+                            <textarea className="text-center pt-3 w-4/5" ref={inputLinkEl} type="text" value={data.email} readOnly>
+                            </textarea>
+                            <div className="w-1/5  pt-3 rounded-r-lg bg-yellow-400">
+                                {
+                                    !isCopy ?
+                                       <FontAwesomeIcon 
+                                            icon={faPaperPlane} 
+                                            className="cursor-pointer"
+                                        /> 
+                                    :
+                                    <FontAwesomeIcon 
+                                    icon={faCheck} 
+                                /> 
+                                }
+                                
+                            </div>
+                        </div>
                     </div>
                 }
             </Main>
