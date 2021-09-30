@@ -14,10 +14,10 @@ function Form(){
 
     //Stockage dans l'état des data envoyé par l'utilisateur 
     const [data,setData] = useState({
-        idAffiliated : '',
-        email : '',
-        link : '',
-        use : '',
+        idAffiliated : null,
+        email : null,
+        link : null,
+        use : null,
         submit : false
 
     })
@@ -57,7 +57,14 @@ function Form(){
         setErrorCreation(true)
     };
  
-    
+    //Envoi e-mail
+    const sendEmail = () =>{
+
+        window.open(`mailto:${data.email} ?cc= &subject=Lien d'affiliation &body= Hello, Je te transmets ci joint le lien d'affiliation ${data.link}`);
+
+    }
+
+
     //Copier le lien
     const inputLinkEl = useRef(null)
     const [isCopy , setIsCopy] = useState(false)
@@ -163,9 +170,9 @@ function Form(){
                                             className="cursor-pointer"
                                         /> 
                                     :
-                                    <FontAwesomeIcon 
-                                    icon={faCheck} 
-                                /> 
+                                        <FontAwesomeIcon 
+                                        icon={faCheck} 
+                                        /> 
                                 }
                                 
                             </div>
@@ -174,19 +181,15 @@ function Form(){
                             Envoyer le lien généré par mail
                         </label>
                         <div className="flex w-full border-2 rounded-lg text-center text-black justify-around">
-                            <textarea className="text-center pt-3 w-4/5" ref={inputLinkEl} type="text" value={data.email} readOnly>
+                            <textarea className="text-center pt-3 w-4/5" type="text" value={data.email} readOnly>
                             </textarea>
                             <div className="w-1/5  pt-3 rounded-r-lg bg-yellow-400">
                                 {
-                                    !isCopy ?
-                                       <FontAwesomeIcon 
-                                            icon={faPaperPlane} 
-                                            className="cursor-pointer"
-                                        /> 
-                                    :
                                     <FontAwesomeIcon 
-                                    icon={faCheck} 
-                                /> 
+                                        icon={faPaperPlane} 
+                                        onClick={sendEmail}
+                                        className="cursor-pointer"
+                                    />  
                                 }
                                 
                             </div>

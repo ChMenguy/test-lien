@@ -46941,10 +46941,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Form() {
   //Stockage dans l'état des data envoyé par l'utilisateur 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    idAffiliated: '',
-    email: '',
-    link: '',
-    use: '',
+    idAffiliated: null,
+    email: null,
+    link: null,
+    use: null,
     submit: false
   }),
       _useState2 = _slicedToArray(_useState, 2),
@@ -46988,6 +46988,11 @@ function Form() {
 
   var onError = function onError() {
     setErrorCreation(true);
+  }; //Envoi e-mail
+
+
+  var sendEmail = function sendEmail() {
+    window.open("mailto:".concat(data.email, " ?cc= &subject=Lien d'affiliation &body= Hello, Je te transmets ci joint le lien d'affiliation ").concat(data.link));
   }; //Copier le lien
 
 
@@ -47128,17 +47133,15 @@ function Form() {
     className: "flex w-full border-2 rounded-lg text-center text-black justify-around"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     className: "text-center pt-3 w-4/5",
-    ref: inputLinkEl,
     type: "text",
     value: data.email,
     readOnly: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "w-1/5  pt-3 rounded-r-lg bg-yellow-400"
-  }, !isCopy ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faPaperPlane"],
+    onClick: sendEmail,
     className: "cursor-pointer"
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCheck"]
   }))))));
 }
 
