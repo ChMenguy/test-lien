@@ -57840,7 +57840,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Form() {
-  //Stockage des data envoyé par l'utilisateur 
+  //Stockage dans l'état des data envoyé par l'utilisateur 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     idAffiliated: '',
     email: '',
@@ -57870,17 +57870,19 @@ function Form() {
         idAffiliated: data.idAffiliated,
         email: data.email,
         use: data.use,
-        link: "http://127.0.0.1:8000/?id_affilie=".concat(data.link)
+        link: "http://127.0.0.1:8000/?id=".concat(data.link)
       }
     }).then(function () {
       setData({
         idAffiliated: data.idAffiliated,
         email: data.email,
-        link: data.link,
+        link: "http://127.0.0.1:8000/?id=".concat(data.link),
         use: data.use,
         submit: true
       });
       setErrorCreation(false);
+    })["catch"](function () {
+      return setErrorCreation(true);
     });
   }; //En cas d'erreur d'envoi ou champ non renseigné
 
@@ -58004,15 +58006,15 @@ function Form() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
     htmlFor: "grid-id"
-  }, "Lien g\xE9n\xE9r\xE9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Copi\xE9 le lien g\xE9n\xE9r\xE9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex w-full border-2 rounded-lg text-center text-black justify-around"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     className: "text-center pt-3 w-4/5",
     ref: inputLinkEl,
     type: "text",
-    value: "http://127.0.0.1:8000/?id_affilie=".concat(data.link),
+    value: data.link,
     readOnly: true
-  }, "http://127.0.0.1:8000/?id_affilie=", data.link), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, data.link), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "w-1/5  pt-3 rounded-r-lg bg-yellow-400"
   }, !isCopy ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCopy"],

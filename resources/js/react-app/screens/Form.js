@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 function Form(){
 
-    //Stockage des data envoyé par l'utilisateur 
+    //Stockage dans l'état des data envoyé par l'utilisateur 
     const [data,setData] = useState({
         idAffiliated : '',
         email : '',
@@ -36,19 +36,20 @@ function Form(){
           idAffiliated: data.idAffiliated,
           email: data.email,
           use : data.use,
-          link : `http://127.0.0.1:8000/?id_affilie=${data.link}`
+          link : `http://127.0.0.1:8000/?id=${data.link}`
         },
       })
         .then(function () {
             setData({
                 idAffiliated  : data.idAffiliated,
                 email : data.email,
-                link : data.link,
+                link : `http://127.0.0.1:8000/?id=${data.link}`,
                 use : data.use,
                 submit : true
             })
             setErrorCreation(false) 
         })
+        .catch(() => setErrorCreation(true))
 
     };
 
@@ -149,11 +150,11 @@ function Form(){
                     : 
                     <div className="w-full max-w-lg mx-auto mt-10">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-id">
-                            Lien généré
+                            Copié le lien généré
                         </label>
                         <div className="flex w-full border-2 rounded-lg text-center text-black justify-around">
-                            <textarea className="text-center pt-3 w-4/5" ref={inputLinkEl} type="text" value={`http://127.0.0.1:8000/?id_affilie=${data.link}`} readOnly>
-                                http://127.0.0.1:8000/?id_affilie={data.link}
+                            <textarea className="text-center pt-3 w-4/5" ref={inputLinkEl} type="text" value={data.link} readOnly>
+                                {data.link}
                             </textarea>
                             <div className="w-1/5  pt-3 rounded-r-lg bg-yellow-400">
                                 {
